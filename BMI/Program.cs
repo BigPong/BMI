@@ -65,8 +65,7 @@ namespace BMI
 
                 // Set text color to white
                 Console.ForegroundColor = ConsoleColor.White;
-
-
+                
                 // Whether user want to continue   Judge by "n"
                 Console.WriteLine("輸入n離開或按任意鍵繼續");
                 if (Console.ReadLine() == "n")
