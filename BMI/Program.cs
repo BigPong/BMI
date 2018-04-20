@@ -63,11 +63,57 @@ namespace BMI
                 // Print in format 0.00  Blank line for good watching
                 Console.WriteLine("\r\nBMI為" + ans.ToString("#0.00") + "\r\n");
 
+                // 長條圖BMI
+                int BMIBAR = ((int)ans)/4;
+                
+                // 左邊底數字
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("0  ");
+
+                // 繪製長條圖
+                for (int i = 0; i < 25; i++)
+                {
+                    if (i <= 4)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Cyan;
+                    }else if(i <= 6)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                    }
+                    if(i == BMIBAR)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    }
+                    Console.Write(" ");
+                }
+
                 // Set text color to white
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
+
+                // 右邊底數字
+                Console.Write("  100\r\n");
+
+                // 標示長條圖位置  超過右底就顯示額外文字
+                if (ans > 100)
+                {
+                    Console.Write("大哥你認真?");
+                }
+                else
+                {
+                    for (int i = 0; i < BMIBAR; i++)
+                    {
+                        Console.Write(" ");
+                    }
+                    Console.Write("   |" + ans.ToString("#0.00"));
+                }
                 
                 // Whether user want to continue   Judge by "n"
-                Console.WriteLine("輸入n離開或按任意鍵繼續");
+                Console.WriteLine("\r\n\r\n輸入n離開或按任意鍵繼續");
                 if (Console.ReadLine() == "n")
                 {
                     break;
